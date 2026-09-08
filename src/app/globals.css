@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 26, 26, 46;
+  --background-start-rgb: 245, 247, 250;
+  --background-end-rgb: 255, 255, 255;
+  --primary: #0E1C59;
+  --primary-light: #0067B1;
+  --primary-dark: #003366;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 15, 46;
+    --background-end-rgb: 14, 28, 89;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: "EMB Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ✅ ใช้ CSS ธรรมดาแทน @apply */
+.emb-card {
+  background-color: white;
+  border: 1px solid #E8ECF0;
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(10, 15, 46, 0.08);
+}
+
+.emb-card:hover {
+  box-shadow: 0 4px 16px rgba(10, 15, 46, 0.12);
+}
+
+.emb-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid #B0B8C4;
+  border-radius: 2px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.emb-input:focus {
+  border-color: #0067B1;
+  box-shadow: 0 0 0 2px rgba(0, 103, 177, 0.2);
+}
+
+.emb-btn-primary {
+  background-color: #0E1C59;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.emb-btn-primary:hover {
+  background-color: #003366;
+  transform: scale(0.98);
+}
+
+.emb-btn-secondary {
+  background-color: transparent;
+  border: 1px solid #0E1C59;
+  color: #0E1C59;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.emb-btn-secondary:hover {
+  background-color: rgba(14, 28, 89, 0.1);
+  transform: scale(0.98);
+}
+
+.emb-section {
+  padding: 64px 16px;
+}
+
+@media (min-width: 640px) {
+  .emb-section {
+    padding: 64px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .emb-section {
+    padding: 64px 32px;
+  }
+}
+
+.emb-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
